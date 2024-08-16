@@ -231,4 +231,11 @@ SELECT P.year
 FROM product_emissions AS P
 LEFT JOIN industry_groups AS I ON P.industry_group_id = I.id
 GROUP BY I.industry_group,P.year
-```                                                                                                                                                                                                                                                                                                                                                                                                                                 
+```
+#
+## Overview :
+The products with the highest levels of carbon emissions are typically associated with heavy industry. The highest industry contribution to carbon emissions is in electrical equipment and machinery over time.
+The product group is Wind Turbines, which contribute the most carbon emissions. In there, Germany is the highest and Gamesa Corporación Tecnológica, S.A company with the highest contribution to carbon emissions.
+But if you see the overview, We can see the carbon footprint has been decreasing from 2016 to 2017
+
+
