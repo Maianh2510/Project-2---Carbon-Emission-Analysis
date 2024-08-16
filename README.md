@@ -46,3 +46,35 @@ TOP 10 products contribute the most to carbon emission :
 | Mercedes-Benz GLE (GLE 500 4MATIC)                                                                                                 | 91000            | 
 | Electric Motor                                                                                                                     | 87589            | 
 | Mercedes-Benz S-Class (S 500)                                                                                                      | 85000            | 
+```
+SELECT product_name,max(carbon_footprint_pcf) AS 'carbon_foorprint'
+FROM product_emissions
+GROUP BY product_name
+ORDER BY max(carbon_footprint_pcf) DESC
+LIMIT 10
+```
+#
+## What are the industry groups of these products
+Products by industry :
+| product_name                                                                                                                       | industry_group                     | 
+| ---------------------------------------------------------------------------------------------------------------------------------: | ---------------------------------: | 
+| Wind Turbine G128 5 Megawats                                                                                                       | Electrical Equipment and Machinery | 
+| Wind Turbine G132 5 Megawats                                                                                                       | Electrical Equipment and Machinery | 
+| Wind Turbine G114 2 Megawats                                                                                                       | Electrical Equipment and Machinery | 
+| Wind Turbine G90 2 Megawats                                                                                                        | Electrical Equipment and Machinery | 
+| Land Cruiser Prado. FJ Cruiser. Dyna trucks. Toyoace.IMV def unit.                                                                 | Automobiles & Components           | 
+| Retaining wall structure with a main wall (sheet pile): 136 tonnes of steel sheet piles and 4 tonnes of tierods per 100 meter wall | Materials                          | 
+| TCDE                                                                                                                               | Materials                          | 
+| Mercedes-Benz GLE (GLE 500 4MATIC)                                                                                                 | Automobiles & Components           | 
+| Electric Motor                                                                                                                     | Capital Goods                      | 
+| Mercedes-Benz S-Class (S 500)                                                                                                      | Automobiles & Components           | 
+```
+SELECT P.product_name, I.industry_group 
+FROM product_emissions AS P
+INNER JOIN industry_groups AS I ON P.industry_group_id = I.id
+GROUP BY P.product_name
+HAVING max(P.carbon_footprint_pcf)
+ORDER BY max(P.carbon_footprint_pcf) DESC
+LIMIT 10
+```                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                                                                                                                                                 
