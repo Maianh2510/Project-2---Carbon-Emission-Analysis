@@ -79,7 +79,7 @@ LIMIT 10
 ```
 #
 ## What are the industries with the highest contribution to carbon emissions?
-The highest is Electrical Equipment and Machinery 
+In top 5 industries the highest contribution to carbon emissions, Electrical Equipment and Machinery is highest
 | industry_group                     | carbon_footprint | 
 | ---------------------------------: | ---------------: | 
 | Electrical Equipment and Machinery | 9801558          | 
@@ -92,6 +92,43 @@ SELECT I.industry_group,sum(P.carbon_footprint_pcf) AS carbon_footprint
 FROM product_emissions AS P
 INNER JOIN industry_groups AS I ON P.industry_group_id = I.id
 GROUP BY I.industry_group
+ORDER BY sum(P.carbon_footprint_pcf) DESC
+LIMIT 5
+```
+#
+## What are the companies with the highest contribution to carbon emissions?
+In top 5 companies the highest contribution to carbon emissions,Gamesa Corporación Tecnológica, S.A company is highest
+| company_name                            | carbon_footprint | 
+| --------------------------------------: | ---------------: | 
+| "Gamesa Corporación Tecnológica, S.A."  | 9778464          | 
+| Daimler AG                              | 1594300          | 
+| Volkswagen AG                           | 655960           | 
+| "Mitsubishi Gas Chemical Company, Inc." | 212016           | 
+| "Hino Motors, Ltd."                     | 191687           | 
+
+```
+SELECT C.company_name,sum(P.carbon_footprint_pcf) AS carbon_footprint
+FROM product_emissions AS P
+INNER JOIN companies AS C ON P.company_id = C.id
+GROUP BY C.company_name
+ORDER BY sum(P.carbon_footprint_pcf) DESC
+LIMIT 5
+```
+#
+## What are the countries with the highest contribution to carbon emissions?
+In top 5 countries the highest contribution to carbon emissions, Germany is highest
+| country_name | carbon_footprint | 
+| -----------: | ---------------: | 
+| Germany      | 9778464          | 
+| Lithuania    | 212016           | 
+| Greece       | 191687           | 
+| Japan        | 132012           | 
+| Colombia     | 105600           | 
+```
+SELECT C.country_name,sum(P.carbon_footprint_pcf) AS carbon_footprint
+FROM product_emissions AS P
+INNER JOIN countries AS C ON P.company_id = C.id
+GROUP BY C.country_name
 ORDER BY sum(P.carbon_footprint_pcf) DESC
 LIMIT 5
 ```
