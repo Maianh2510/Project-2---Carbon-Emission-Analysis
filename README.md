@@ -76,5 +76,24 @@ GROUP BY P.product_name
 HAVING max(P.carbon_footprint_pcf)
 ORDER BY max(P.carbon_footprint_pcf) DESC
 LIMIT 10
-```                                                                                                                                                                                
+```
+#
+## What are the industries with the highest contribution to carbon emissions?
+The highest is Electrical Equipment and Machinery 
+| industry_group                     | carbon_footprint | 
+| ---------------------------------: | ---------------: | 
+| Electrical Equipment and Machinery | 9801558          | 
+| Automobiles & Components           | 2582264          | 
+| Materials                          | 577595           | 
+| Technology Hardware & Equipment    | 363776           | 
+| Capital Goods                      | 258712           | 
+```
+SELECT I.industry_group,sum(P.carbon_footprint_pcf) AS carbon_footprint
+FROM product_emissions AS P
+INNER JOIN industry_groups AS I ON P.industry_group_id = I.id
+GROUP BY I.industry_group
+ORDER BY sum(P.carbon_footprint_pcf) DESC
+LIMIT 5
+```
+
                                                                                                                                                                                                                                                                                                                                                                                                                                  
