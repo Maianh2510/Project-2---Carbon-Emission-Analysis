@@ -47,3 +47,4 @@ TOP 10 products contribute the most to carbon emission :
 | Electric Motor                                                                                                                     | 87589            | 
 | Mercedes-Benz S-Class (S 500)                                                                                                      | 85000            | 
 
+https://api.swisscoding.edu.vn/sqlexec/?database=carbon_emissions&query=SELECT+*+FROM+product_emissions+LIMIT+5%0D%0A%23SELECT+*+FROM+industry_groups+LIMIT+5%0D%0A%23SELECT+*+FROM+companies+LIMIT+5%0D%0A%23SELECT+*+FROM+countries+LIMIT+5%0D%0A%0D%0A&standalone=true
