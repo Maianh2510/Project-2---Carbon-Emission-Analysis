@@ -132,5 +132,21 @@ GROUP BY C.country_name
 ORDER BY sum(P.carbon_footprint_pcf) DESC
 LIMIT 5
 ```
+#
+## What is the trend of carbon footprints (PCFs) over the years?
+From 2013 to 2017, the high carbon footprints were in 2015. And then, the carbon footprint has been decreasing in 2016 - 2017
+| year | Average_carbon_footprints | Total_carbon_footprints | 
+| ---: | ------------------------: | ----------------------: | 
+| 2013 | 2399.32                   | 503857                  | 
+| 2014 | 2457.58                   | 624226                  | 
+| 2015 | 43188.90                  | 10840415                | 
+| 2016 | 6891.52                   | 1640182                 | 
+| 2017 | 4050.85                   | 340271                  | 
+```
+SELECT year,sum(carbon_footprint_pcf) AS carbon_footprint
+FROM product_emissions 
+GROUP BY year
+ORDER BY year ASC
+```
 
                                                                                                                                                                                                                                                                                                                                                                                                                                  
